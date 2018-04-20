@@ -2,7 +2,7 @@
 
 //front
 
-$.ajax('/api/student',{
+$.ajax('/api/student/getAllStudents',{
 
     accepts:'application/json',
     success:function(data,status){
@@ -32,7 +32,11 @@ $('#btnsubmit').on('click',function(e){
             name:student_name,
             age:student_age
         }),
-
+        success:function(data,status){
+            var body = $('body');
+            var elem = '<div>name : '+ data.name +'------------'+' age :  '+ data.age+ '</div>'
+            body.append(elem);
+        },
         error:function(ajax,status,err){
             debugger;
             var body = $('body');

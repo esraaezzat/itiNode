@@ -2,7 +2,7 @@ var express = require('express');
 var router = express.Router();
 var Student = require('../Models/usermodel');
 /* GET users listing. */
-router.get('/', function(req, res, next) {
+router.get('/getAllStudents', function(req, res, next) {
   
   Student.find({})
   .then(data=>{
@@ -18,8 +18,10 @@ router.get('/', function(req, res, next) {
 router.post('/',function(req,res,next){
   debugger;
  
-   Student.create(req.body)
-   res.send("Done!!");
+   Student.create(req.body,function(err,student){
+    res.json(student)
+   })
+   
 });
 
 router.get('/getByQuery',function(req,res,next){
