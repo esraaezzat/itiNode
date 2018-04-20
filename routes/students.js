@@ -19,7 +19,7 @@ router.post('/',function(req,res,next){
   debugger;
  
    Student.create(req.body)
-   res.send("fhhhhhhhhhhhhhhhhh");
+   res.send("Done!!");
 });
 
 router.get('/getByQuery',function(req,res,next){

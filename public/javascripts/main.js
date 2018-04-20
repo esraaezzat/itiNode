@@ -1,4 +1,7 @@
 
+
+//front
+
 $.ajax('/api/student',{
 
     accepts:'application/json',
@@ -17,7 +20,7 @@ $.ajax('/api/student',{
 })
 
 
-
+/***post**** */
 $('#btnsubmit').on('click',function(e){
     debugger;
     var student_name = $('input[name="name"]').val();
