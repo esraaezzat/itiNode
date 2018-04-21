@@ -6,14 +6,13 @@
 
 /**delete */
 $('body').on('click','.btn',function(e){
+    var studentId = $(this).attr('id');
+    console.log(JSON.stringify({
+        _id:studentId
+    }))
     debugger;
- 
-      var studentId = $(this).attr('id');
-        $.ajax('api/student/delete',{
+        $.ajax('api/student/delete/'+studentId,{
             method:'delete',
-            data:JSON.stringify({
-                _id:studentId
-            }),
             success:function(){
                 alert("deleted");
             }

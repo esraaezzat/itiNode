@@ -8,4 +8,10 @@ if(process.env.NODE_ENV === 'production'){
     mongo_url = 'mongodb://admin:admin@ds151809.mlab.com:51809/iti'
    
 }
-mongoose.connect(mongo_url);
+mongoose.connect(mongo_url,(err)=>{
+    if(err){
+        console.log('Mongo Connect Error',err.message)
+    } else {
+        console.log('connected successfully')
+    }
+});

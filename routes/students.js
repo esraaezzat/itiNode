@@ -55,20 +55,20 @@ router.get('/getAllStudents', function(req, res, next) {
   });
 
 });
-router.use(isAuthenticated);
 
 
 
-router.delete('/delete',function(req,res,next){
+router.delete('/delete/:_id',function(req,res,next){
   debugger;
- 
-  Student.remove(req.body,function(err){
+  Student.remove({_id: req.params._id},function(err){
+    if(err) return next(err);
     res.json({});
     
   })
     
   
 })
+router.use(isAuthenticated);
 
 router.get('/getByQuery',function(req,res,next){
   debugger;
