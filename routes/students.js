@@ -43,10 +43,9 @@ router.post('/',function(req,res,next){
 });
 
 
-router.use(isAuthenticated);
 
 router.get('/getAllStudents', function(req, res, next) {
-  
+  debugger;
   Student.find({})
   .then(data=>{
     res.json(data)
@@ -56,6 +55,7 @@ router.get('/getAllStudents', function(req, res, next) {
   });
 
 });
+router.use(isAuthenticated);
 
 
 

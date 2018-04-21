@@ -28,16 +28,19 @@ $.ajax('/api/student/getAllStudents',{
     accepts:'application/json',
     contentType:'application/json',    
     success:function(data,status){
+        debugger;
         var body = $('body');
         data.forEach(student => {
+            
             var elem = '<div>name : '+ student.name +'------------'+' age :  '+ student.age+ ' <button class ="btn" id='+student._id+'>Delete</button></div><br>'
         body.append(elem);
         });
     },
 
-    error:function(ajax,status,err){
+    error:function(status,err){
         var body = $('body');
-        var elem = '<div> Error : ' + err
+        var elem = '<div> Error : ' + err +'</div>';
+        body.append(elem);
     }
 })
 
